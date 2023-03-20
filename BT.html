@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faking Text Area</title>
+</head>
+<body>
+<h2>Type anything slowly</h2>
+<label for="textinput"></label>
+<textarea id="textinput" style="height: 200px;width: 500px" oninput="fakingTextArea()">
+</textarea>
+<script>
+    let str = 'Type anything slowly and read! You are idiot!'
+    let result = ''
+    let count = 0
+    function fakingTextArea() {
+        result += str[count];
+        count++;
+        if (count === str.length + 1) {
+            result = '';
+            count = 0;
+        }
+        document.getElementById('textinput').value = result;
+    }
+</script>
+</body>
+</html>
